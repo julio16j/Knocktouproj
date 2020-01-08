@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <script type='text/javascript' src='knockout-3.5.1.js'></script>
+    
+</head>
+<body>
+    <section style="display: flex;" >
+        <h1>Joguinho Adivinhe o número </h1>
+        <h1 data-bind="text: range">()</h1>
+    </section>
+    <p data-bind="text: resposta" >Chute um número</p>
+    <input data-bind="value: chute">
+    <button data-bind="click: run">chute</button>
+    <button data-bind="click: reeniciar, visible: resposta()=='Ganhou!'">reeniciar</button>
+    <script>
+        function WebmailViewModel() {
+        this.range = ko.observable("(0-100)");
+        this.chute = ko.observable(3);
+        this.resposta = ko.observable("Chute um número");
+        this.valor = ko.observable(Math.floor(Math.random() * 101));
+
+        this.run = function(){
+           if(this.chute() > this.valor()){
+             this.resposta("Chute um número menor")
+           }
+           else if(this.chute() < this.valor()){
+            this.resposta("Chute um número maior")
+            }
+           else if (this.chute() == this.valor()){
+            this.resposta("Ganhou!")
+            }
+           else {
+               this.resposta("erro")
+           }
+        }
+
+        this.reeniciar = function(){
+            this.valor(Math.floor(Math.random() * 101));
+            this.resposta("Chute um número");
+        }
+    };
+    ko.applyBindings(new WebmailViewModel());
+    </script>
+</body>
