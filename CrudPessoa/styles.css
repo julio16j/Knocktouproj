@@ -1,0 +1,8 @@
+div.campo label{
+    width: 30%;
+    margin: 0 auto;
+}
+div.campo {
+    display: initial;
+    margin-bottom: 5px 0 !important;
+}

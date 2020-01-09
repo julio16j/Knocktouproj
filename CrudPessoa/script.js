@@ -39,6 +39,11 @@ function ReservationsViewModel() {
     self.salvarPessoa = function(){
         self.Pessoas.replace(self.pessoaAntiga(), new Pessoa(self.pessoaAntiga().id,self.nome(), self.cpf(), self.dataNascimento(), self.capital()) )
         console.log(self.Pessoas())
+        self.listagem(false);
+        self.nome(null);
+        self.cpf(null);
+        self.dataNascimento(null);
+        self.capital(null);
         self.listagem(true);
     }
     self.removerPessoa = function(pessoa) { self.Pessoas.remove(pessoa) }
