@@ -14,30 +14,30 @@
     <button data-bind="click: reeniciar, visible: resposta()=='Ganhou!'">reeniciar</button>
     <script>
         function WebmailViewModel() {
-        this.range = ko.observable("(0-100)");
-        this.chute = ko.observable(3);
-        this.resposta = ko.observable("Chute um número");
-        this.valor = ko.observable(Math.floor(Math.random() * 101));
+            this.range = ko.observable("(0-100)");
+            this.chute = ko.observable(3);
+            this.resposta = ko.observable("Chute um número");
+            this.valor = ko.observable(Math.floor(Math.random() * 101));
 
-        this.run = function(){
-           if(this.chute() > this.valor()){
-             this.resposta("Chute um número menor")
-           }
-           else if(this.chute() < this.valor()){
-            this.resposta("Chute um número maior")
+            this.run = function(){
+            if(this.chute() > this.valor()){
+                this.resposta("Chute um número menor")
             }
-           else if (this.chute() == this.valor()){
-            this.resposta("Ganhou!")
+            else if(this.chute() < this.valor()){
+                this.resposta("Chute um número maior")
+                }
+            else if (this.chute() == this.valor()){
+                this.resposta("Ganhou!")
+                }
+            else {
+                this.resposta("erro")
             }
-           else {
-               this.resposta("erro")
-           }
-        }
+            }
 
-        this.reeniciar = function(){
-            this.valor(Math.floor(Math.random() * 101));
-            this.resposta("Chute um número");
-        }
+            this.reeniciar = function(){
+                this.valor(Math.floor(Math.random() * 101));
+                this.resposta("Chute um número");
+            }
     };
     ko.applyBindings(new WebmailViewModel());
     </script>

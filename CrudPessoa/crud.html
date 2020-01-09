@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type='text/javascript' src='knockout-3.5.1.js'></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2>Crud Pessoas(<!-- <span data-bind="text: seats().length"></span>-->)</h2>
+    <section class="container" style = "display: block;" id="main" data-bind="visible: listagem">
+        <table>
+            <thead><tr>
+                <th>Nome</th><th>CPF</th><th>Data de Nascimento</th><th>Capital</th>
+            </tr></thead>
+
+            <tbody data-bind="foreach: Pessoas">
+            <tr>
+                <td> <p data-bind="text: nome"></p> </td>
+                <td><p data-bind=" text: cpf"></p></td>
+                <td><p data-bind="text: dataNascimento"></p></td>
+                <td data-bind="text: capital"></td>
+                <td><button data-bind="click: $root.editarPessoa">Editar</a></td>
+                <td><button data-bind="click: $root.removerPessoa">Remove</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class  id="formulario">
+            <h5>Nova Pessoa</h5>
+            <div class="campo">
+                <label>Nome</label>
+                <input data-bind="value: nome">
+            </div>
+            <div class="campo">
+                <label>CPF</label>
+                <input data-bind="value: cpf">
+            </div>
+            <div class="campo">
+                <label>Data de Nascimento</label>
+                <input data-bind="value: dataNascimento">
+            </div>
+            <div class="campo">
+                <label>Capital</label>
+                <input data-bind="value: capital">
+            </div>
+            <button data-bind="click: adicionarPessoa">adicionar pessoa</button>
+        </div>
+    </section>
+    <section id="editarPessoa" data-bind="hidden: listagem">
+        <div id="formulario">
+            <h3>Editar Pessoa</h3>
+            <div class="campo">
+                <label>Nome</label>
+                <input data-bind="value: nome">
+            </div>
+            <div class="campo">
+                <label>CPF</label>
+                <input data-bind="value: cpf">
+            </div>
+            <div class="campo">
+                <label>Data de Nascimento</label>
+                <input data-bind="value: dataNascimento">
+            </div>
+            <div class="campo">
+                <label>Capital</label>
+                <input data-bind="value: capital">
+            </div>
+            <button data-bind="click: salvarPessoa">Salvar</button>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
