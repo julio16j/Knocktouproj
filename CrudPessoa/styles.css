@@ -1,8 +1,26 @@
+body {
+    background-color: #563d7c;
+}
 div.campo label{
     width: 30%;
     margin: 0 auto;
 }
 div.campo {
-    display: initial;
+    display: block;
     margin-bottom: 5px 0 !important;
+}
+h2 {
+    text-align: center;
+}
+table#listagem, div#formulario{
+    background-color: #55557555;
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+span.validationMessage{
+    color: #A20;
+}
+*{
+    text-shadow: 1px 1px 1px #722f72;
 }
